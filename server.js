@@ -32,7 +32,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.post('/signin', signin.handleSignin(db, bcrypt));
-app.post('/register', handleRegister.handleRegister(db, bcrypt));
+app.post('/register', handleRegister(db, bcrypt));
 app.get('/profile/:id', profile.handleProfileGet(db) );
 app.put('/image', image.handleImage(db));
 app.post('/imageurl', (req, resp) => { image.handleApiCall(req, resp) });
