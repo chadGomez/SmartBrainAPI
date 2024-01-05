@@ -5,8 +5,8 @@ const bcrypt = require('bcrypt-nodejs');
 const cors = require('cors');
 const knex = require('knex');
 
-// const register = require('./controllers/register');
-import handleRegister from './controllers/register';
+const register = require('./controllers/register');
+// import handleRegister from './controllers/register';
 const signin = require('./controllers/signin');
 const profile = require('./controllers/profile');
 const image = require('./controllers/image');
