@@ -33,7 +33,7 @@ const db = knex({
 app.use(bodyParser.json());
 app.use(cors());
 // error fix
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'src')));
 
 app.post('/signin', signin.handleSignin(db, bcrypt));
 app.post('/register', register.handleRegister(db, bcrypt));
