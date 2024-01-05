@@ -4,6 +4,7 @@ const app = express();
 const bcrypt = require('bcrypt-nodejs');
 const cors = require('cors');
 const knex = require('knex');
+const path = require('path');
 
 const register = require('./controllers/register');
 // import handleRegister from './controllers/register';
@@ -31,6 +32,8 @@ const db = knex({
 
 app.use(bodyParser.json());
 app.use(cors());
+// error fix
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.post('/signin', signin.handleSignin(db, bcrypt));
 app.post('/register', register.handleRegister(db, bcrypt));
