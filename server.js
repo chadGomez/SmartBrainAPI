@@ -7,7 +7,6 @@ const knex = require('knex');
 const path = require('path');
 
 const register = require('./controllers/register');
-// import handleRegister from './controllers/register';
 const signin = require('./controllers/signin');
 const profile = require('./controllers/profile');
 const image = require('./controllers/image');
@@ -25,14 +24,9 @@ const db = knex({
   }
 });
 
-// host: '127.0.0.1',
-// user: 'postgres',
-// password: 'test',
-// database: 'SmartBrain'
-
 app.use(bodyParser.json());
 app.use(cors());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'build')));
 
 app.post('/signin', signin.handleSignin(db, bcrypt));
 app.post('/register', register.handleRegister(db, bcrypt));
